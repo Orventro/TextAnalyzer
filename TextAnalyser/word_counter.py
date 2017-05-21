@@ -8,6 +8,7 @@ def wordIndex(s, voc) :
     if (s == voc[i][0]): return i 
   return len(voc)
 
+#transforms text(string) to list of words(array)
 def textToWords(s) :
   sLen = len(s)
   wordStart = 0
@@ -19,6 +20,7 @@ def textToWords(s) :
       wordStart = i+1
   return words
 
+#finds longest word in list of words
 def longestWord(vocabulary):
   b = ''
   a = 0
@@ -28,17 +30,23 @@ def longestWord(vocabulary):
       a = len(i[0])
   return b
 
+#count number of words in vocabulary
 def totalWords(vocabulary):
   a = 0
   for i in vocabulary:
     a += i[1]
   return a
 
+#gets string and transforms it to vocabulary
 def count(s) :
   vocabulary = []
   s = s.lower() #Lowercases all letters in string. If not do this 'Cat' and 'cat' will count as different words
+  #transform string to list of words
   words = textToWords(s)
   wordNum = len(words)
+  #creating a vocabulary 
+  #vocabulary is a list with structure:
+  # [[word, quantity of this word in text, percent of usage], [another word, it's quantity, and percent of usage], [and, so, on]]
   for i in range(wordNum) :
     activeWord = wordIndex(words[i], vocabulary)
     if (activeWord == len(vocabulary)) :
