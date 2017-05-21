@@ -20,7 +20,7 @@ def textToWords(s) :
       wordStart = i+1
   return words
 
-#finds longest word in list of words
+#finds longest word in vocabulary
 def longestWord(vocabulary):
   b = ''
   a = 0
